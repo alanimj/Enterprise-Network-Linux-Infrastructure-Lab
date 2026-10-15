@@ -1,4 +1,3 @@
-[README.md](https://github.com/user-attachments/files/33465238/README.md)
 # Enterprise-Network-Linux-Infrastructure-Lab
 
 A small enterprise network and Linux infrastructure built end to end in GNS3 and VMware Workstation. The network half covers addressing, inter-VLAN routing, OSPF, and NAT. The systems half covers DNS, NTP, a web server, NFS on LVM, firewalld, SELinux, and an Ansible baseline.
