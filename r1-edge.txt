@@ -1,0 +1,27 @@
+# R1-EDGE (VyOS) - edge router: static default route, OSPF to SW-CORE, NAT
+# Format: VyOS set commands. Paste in configure mode, then: commit; save
+
+# Interfaces
+set interfaces ethernet eth1 address '192.0.2.2/30'
+set interfaces ethernet eth1 description 'OUTSIDE'
+set interfaces ethernet eth2 address '10.10.255.1/30'
+set interfaces ethernet eth2 description 'TO-SW-CORE'
+
+# Default route to the ISP
+set protocols static route 0.0.0.0/0 next-hop 192.0.2.1
+
+# OSPF (transit link only; the outside link is not in OSPF)
+set protocols ospf interface eth2 area '0'
+set protocols ospf interface eth2 network 'point-to-point'
+set protocols ospf parameters router-id '1.1.1.1'
+set protocols ospf default-information originate always
+
+# Source NAT for the whole lab
+set nat source rule 100 outbound-interface name 'eth1'
+set nat source rule 100 source address '10.10.0.0/16'
+set nat source rule 100 translation address 'masquerade'
+
+# Static destination NAT: publish web01 on 192.0.2.10
+set nat destination rule 10 inbound-interface name 'eth1'
+set nat destination rule 10 destination address '192.0.2.10'
+set nat destination rule 10 translation address '10.10.40.10'

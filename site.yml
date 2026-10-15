@@ -1,0 +1,50 @@
+---
+- name: Northwind baseline
+  hosts: lab
+  become: true
+  tasks:
+    - name: Set hostname
+      ansible.builtin.hostname:
+        name: "{{ inventory_hostname }}.northwind.lab"
+
+    - name: Enable and start firewalld
+      ansible.builtin.systemd:
+        name: firewalld
+        enabled: true
+        state: started
+
+    - name: Read SELinux mode
+      ansible.builtin.command: getenforce
+      register: selinux_mode
+      changed_when: false
+
+    - name: Confirm SELinux is enforcing
+      ansible.builtin.assert:
+        that: selinux_mode.stdout == 'Enforcing'
+        fail_msg: "SELinux is {{ selinux_mode.stdout }}, expected Enforcing"
+
+    - name: Install chrony
+      ansible.builtin.dnf:
+        name: chrony
+        state: present
+
+    # infra01 is the time source, so it is not pointed at itself
+    - name: Point chrony at infra01
+      ansible.builtin.lineinfile:
+        path: /etc/chrony.conf
+        regexp: '^server 10\.10\.30\.10'
+        line: 'server 10.10.30.10 iburst'
+      when: inventory_hostname != 'infra01'
+      notify: Restart chronyd
+
+    - name: Enable and start chronyd
+      ansible.builtin.systemd:
+        name: chronyd
+        enabled: true
+        state: started
+
+  handlers:
+    - name: Restart chronyd
+      ansible.builtin.systemd:
+        name: chronyd
+        state: restarted
