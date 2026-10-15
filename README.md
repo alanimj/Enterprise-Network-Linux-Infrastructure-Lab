@@ -371,7 +371,6 @@ Every item below was tested and passed.
 <img width="541" height="417" alt="GNS3 Topology" src="https://github.com/user-attachments/assets/28ba7efb-a3e9-489c-8686-01b4d510c23e" />
 <img width="883" height="109" alt="R1EDGEshowospfneighbor" src="https://github.com/user-attachments/assets/e21b3167-74db-4709-a391-851211a3efe8" />
 <img width="879" height="109" alt="swcoreshowospfneighbor" src="https://github.com/user-attachments/assets/8d24f80c-2bf9-46b8-8b18-7ac71c4c5840" />
-<img width="883" height="109" alt="R1EDGEshowospfneighbor" src="https://github.com/user-attachments/assets/b010fe97-2c07-4c54-9e4b-71533739b769" />
 <img width="387" height="62" alt="curlinfra01" src="https://github.com/user-attachments/assets/463e9bdf-7756-4110-84a6-6ee5afa8486f" />
 <img width="631" height="387" alt="digcommandweb01" src="https://github.com/user-attachments/assets/c437e023-f85d-4394-beb6-3d3bc69aa108" />
 <img width="1137" height="94" alt="playrecap" src="https://github.com/user-attachments/assets/3d83d7f1-a953-4a26-89b6-446f38305948" />
