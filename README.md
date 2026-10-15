@@ -3,7 +3,7 @@
 
 A small enterprise network and Linux infrastructure built end to end in GNS3 and VMware Workstation. The network half covers addressing, inter-VLAN routing, OSPF, and NAT. The systems half covers DNS, NTP, a web server, NFS on LVM, firewalld, SELinux, and an Ansible baseline.
 
-**Skills demonstrated:** CCNA-level routing and NAT, RHCE/RHCSA-level service administration, troubleshooting across virtualization, routing, and OS layers, and configuration management with Ansible.
+**Skills demonstrated:** Skills demonstrated: VMware-based virtualization and VM provisioning (VMware Workstation, GNS3, RHEL 9 and VyOS guests); Red Hat Linux administration (BIND DNS, chrony NTP, httpd, NFS on LVM, firewalld, SELinux in enforcing mode, sudo and wheel-group privilege control); TCP/IP networking (VLANs and 802.1Q, OSPF and static routing, NAT, DNS, NTP); troubleshooting complex network faults across virtualization, routing, and OS layers; configuration automation with an Ansible playbook and key-based SSH.
 
 ---
 
