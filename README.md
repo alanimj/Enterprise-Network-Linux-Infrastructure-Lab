@@ -411,11 +411,3 @@ A freshly added VM showed "operating system not found" because the GNS3 node poi
 `named` was running but the zone had not loaded, so it refused queries for a zone it was not authoritative for. Fixing the config error and reloading the zone changed the answer to `NOERROR` with the authoritative flag set. A related syntax error (`missing ';' before '}'`) came from a missing semicolon in `named.conf`, and `named-checkconf` pointed to the line.
 
 ---
-
-## What I would do next
-
-- Replace the unmanaged access switch with a managed switch and run all four VLANs as 802.1Q tagged traffic on a trunk.
-- Add VyOS firewall rules between the DMZ and the server subnet to enforce least privilege.
-- Add DHCP on the user VLAN with a relay, and a client to test it.
-- Store router configs in version control so a lost node can be rebuilt from the repository.
-- Add monitoring and centralized logging.
